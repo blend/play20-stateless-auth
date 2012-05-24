@@ -56,14 +56,7 @@ See the sample application included in this git repository.
 Attention
 ---------------------------------------
 
-This module uses the [Cache API](http://www.playframework.org/documentation/2.0/ScalaCache) of Play2.0.
-
-[Ehcache](http://ehcache.org), the default implementation, 
-can not treat authentication information appropriately when the application servers are distributed.
-
-If you have distributed servers, 
-you should rather use the [Memcached Plugin](https://github.com/mumoshu/play2-memcached) or something similar.
-
+This module was based on play20-auth at https://github.com/t2v/play20-auth.
 
 License
 ---------------------------------------
