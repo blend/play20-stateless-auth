@@ -24,26 +24,26 @@ TODO...
 
 1. add a repository resolver into your `Build.scala` or `build.sbt` file.
 
-        resolvers += "t2v.jp repo" at "http://www.t2v.jp/maven-repo/"
+        pending sonatype...
 
 1. add a dependency declaration into your `Build.scala` or `build.sbt` file.
     1. stable release
 
-            "jp.t2v" %% "play20.auth" % "0.2"
+            "com.blendlabsinc" %% "play20.auth" % "0.1"
 
     1. current version
 
-            "jp.t2v" %% "play20.auth" % "0.3-SNAPSHOT"
+            "com.blendlabsinc" %% "play20.auth" % "0.1-SNAPSHOT"
 
 For example: `Build.scala`
 
 ```scala
   val appDependencies = Seq(
-    "jp.t2v" %% "play20.auth" % "0.1"
+    "com.blendlabsinc" %% "play20.auth" % "0.1"
   )
 
   val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
-    resolvers += "t2v.jp repo" at "http://www.t2v.jp/maven-repo/"
+    resolvers += ... pending sonatype
   )
 ```
 
