@@ -7,12 +7,12 @@ object Global extends GlobalSettings {
 
   override def onStart(app: Application) {
 
-    if (Account.findAll.isEmpty) {
+    if (User.findAll.isEmpty) {
       Seq(
-        Account("aaaaaa", "alice@example.com", "secret", "Alice", Administrator),
-        Account("bbbbbb", "bob@example.com", "secret", "Bob", NormalUser),
-        Account("cccccc", "chris@example.com", "secret", "Chris", NormalUser)
-      ) foreach Account.create
+        User("alice@example.com", "secret"),
+        User("bob@example.com", "secret"),
+        User("chris@example.com", "secret")
+      ) foreach User.create
     }
 
   }

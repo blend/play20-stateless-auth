@@ -1,0 +1,27 @@
+@(currentUser: Option[User])(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    </head>
+    <body>
+        <a href="@routes.Application.home">Home</a> &mdash;
+        @currentUser match {
+          case Some(user) => {
+            Logged in as @user.email &mdash;
+            <a href="@routes.Application.logout">Log out</a>
+          }
+          case None => {
+            Not logged in &mdash;
+            <a href="@routes.Application.login">Log in</a>
+          }
+        }
+        &mdash;
+        <a href="@routes.Application.clubhouse">Clubhouse (logged-in users only)</a>
+
+        @content
+    </body>
+</html>

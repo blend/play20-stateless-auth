@@ -1,0 +1,16 @@
+@()(implicit currentUser: Option[User], flash: Flash)
+
+@template(currentUser)("Home") {
+
+
+<h1>Home: 
+  @currentUser.map { currentUser =>
+    @currentUser.email
+  }.getOrElse("not logged in")
+</h1>
+
+@flash.get("success").map { message =>
+  <p class="success">@message</p>
+}   
+
+}

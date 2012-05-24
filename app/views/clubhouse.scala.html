@@ -1,0 +1,12 @@
+@()(implicit currentUser: User, flash: Flash)
+
+@template(Some(currentUser))("Clubhouse (login required)") {
+
+
+<h1>Welcome to the clubhouse,
+  @currentUser.email
+</h1>
+
+This page is only visible to logged-in users.
+
+}
