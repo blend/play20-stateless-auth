@@ -1,43 +1,26 @@
-Play2.0 module for Authentication and Authorization
+Play2.0 module for stateless authentication
 ===========================================================
 
-This module offers Authentication and Authorization features to Play2.0 applications
+This module adds stateless authentication features to Play2.0 applications.
 
 Target
 ---------------------------------------
 
-This module is targets the __Scala__ version of __Play2.0__.
+This module targets the __Scala__ version of __Play2.0__.
 
-For the Java version of Play2.0, there is an authorization module called [Deadbolt 2](https://github.com/schaloner/deadbolt-2).
-
-This module has been tested on Play2.0final and Play2.0.1.
+This module has been tested on Play2.0.1.
 
 Motivation
 ---------------------------------------
 
-### Secure
+### Stateless
 
-`Security` trait in Play2.0 API does not define an identifier that identifies a user.
-
-If you use an E-mail or a user ID as an identier, 
-users can not invalidate the session when the cookie leaks.
-
-This module creates a unique SessionID using a secure random number generator.
-Even if the cookie leaks, users can invalidate the session by logging in again and 
-your application can set a time limit for sessions.
-
-
-### Flexible
-
-Since `Security` trait in Play2.0 API returns `Action`, 
-complicated action methods are nested too deep.
-
-This module provides an interface that return `Either[PlainResult, User]`.
-so, writing complicated action methods is easy.
-
+### Simple
 
 Installation
 ---------------------------------------
+
+TODO...
 
 1. add a repository resolver into your `Build.scala` or `build.sbt` file.
 
