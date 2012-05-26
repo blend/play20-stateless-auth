@@ -36,6 +36,8 @@ Known Issues
 
 2. The contents of the auth cookie are visible to the client.
 
+3. Haven't copied the tests to this project yet.
+
 
 Installation
 ---------------------------------------
