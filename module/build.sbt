@@ -1,6 +1,6 @@
 name := "play20-stateless-auth"
 
-version := "0.2-SNAPSHOT"
+version := "0.3-SNAPSHOT"
 
 resolvers ++= Seq(
   "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
