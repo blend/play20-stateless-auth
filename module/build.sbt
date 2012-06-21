@@ -7,7 +7,8 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "play" %% "play" % "2.0.1"
+  "play" %% "play" % "2.0.1",
+  "commons-codec" % "commons-codec" % "1.2"
 )
 
 organization := "com.blendlabsinc"

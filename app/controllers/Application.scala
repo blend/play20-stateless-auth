@@ -51,6 +51,7 @@ trait StatelessSecurity extends StatelessSecurityBase {
 
   def lookupUser(userId: String) = User.findByEmail(userId)
   def getUserId(user: User) = user.email
+  def authenticateUserAndReturnUserId(userId: String, password: String) = User.authenticate(userId, password).map(_.email)
 
   def onUnauthorized(request: RequestHeader) = Redirect(routes.Application.login)
   def onLoginSucceeded(request: RequestHeader) = Redirect(routes.Application.home)

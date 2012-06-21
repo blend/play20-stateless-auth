@@ -1,16 +1,31 @@
 package com.blendlabsinc.play20.auth
 
 import play.api.mvc._
+import org.apache.commons.codec.binary.Base64.decodeBase64
 
 trait StatelessSecurityBase {
 
   type User
 
   def getUserIdFromRequest(request: RequestHeader): Option[String] =
+    Seq(getUserIdFromCookie _, getUserIdFromHTTPBasicAuth _).flatMap(_.apply(request)).headOption
+
+  def getUserIdFromCookie(request: RequestHeader): Option[String] =
     AuthData.decodeFromCookie(request.cookies.get(AuthData.COOKIE_NAME)).get(AuthData.UserIdKey)
+
+  def getUserIdFromHTTPBasicAuth(request: RequestHeader): Option[String] =
+    request.headers.get("Authorization").flatMap { authorization =>
+      authorization.split(" ").drop(1).headOption.flatMap { encoded =>
+        new String(decodeBase64(encoded.getBytes)).split(":").toList match {
+          case userId :: password :: Nil => authenticateUserAndReturnUserId(userId, password)
+          case _ => None
+        }
+      }
+    }
 
   def lookupUser(userId: String): Option[User]
   def getUserId(user: User): String
+  def authenticateUserAndReturnUserId(userId: String, password: String): Option[String]
   
   def onUnauthorized(request: RequestHeader): Result
   def onLoginSucceeded(request: RequestHeader): PlainResult
