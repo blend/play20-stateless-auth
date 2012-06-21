@@ -38,6 +38,8 @@ Known Issues
 
 3. Haven't copied the tests to this project yet.
 
+4. This code is definitely not ready for production use!! Use for development purposes only at your own risk.
+
 
 Installation
 ---------------------------------------
