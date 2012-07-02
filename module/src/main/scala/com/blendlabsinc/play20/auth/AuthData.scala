@@ -12,9 +12,9 @@ object AuthData extends CookieBaker[AuthData] {
   val COOKIE_NAME = Play.maybeApplication.flatMap(_.configuration.getString("auth.cookieName")).getOrElse("PLAY_AUTH")
   val emptyCookie = new AuthData
   override val isSigned = true
-  val secure = Play.maybeApplication.flatMap(_.configuration.getBoolean("auth.secure")).getOrElse(false)
-  val maxAge = Play.maybeApplication.flatMap(_.configuration.getInt("auth.maxAge")).getOrElse(-1)
-  val httpOnly = Play.maybeApplication.flatMap(_.configuration.getBoolean("auth.httpOnly")).getOrElse(true)
+  override val secure = Play.maybeApplication.flatMap(_.configuration.getBoolean("auth.secure")).getOrElse(false)
+  override val maxAge = Play.maybeApplication.flatMap(_.configuration.getInt("auth.maxAge")).getOrElse(-1)
+  override val httpOnly = Play.maybeApplication.flatMap(_.configuration.getBoolean("auth.httpOnly")).getOrElse(true)
 
   def deserialize(data: Map[String,String]) = new AuthData(data)
 
